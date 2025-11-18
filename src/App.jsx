@@ -3,14 +3,20 @@ import Hero from './components/Hero'
 import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
+import Particles from './components/Particles'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      {/* Background accents */}
+    <div className="min-h-screen bg-slate-950 text-white relative">
+      {/* Dynamic particles background */}
+      <div className="pointer-events-none fixed inset-0 opacity-40 mix-blend-screen">
+        <Particles />
+      </div>
+
+      {/* Soft glow accents */}
       <div className="pointer-events-none fixed inset-0">
-        <div className="absolute -top-32 -left-32 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
-        <div className="absolute -bottom-32 -right-32 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="absolute -top-40 -left-24 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="absolute -bottom-40 -right-24 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
       </div>
 
       <Navbar />

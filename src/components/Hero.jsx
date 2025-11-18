@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-[100vh] flex items-center overflow-hidden">
       {/* 3D Scene */}
       <div className="absolute inset-0">
         <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
@@ -11,6 +11,22 @@ export default function Hero() {
 
       {/* Gradient overlay for readability (keep pointer-events none so Spline stays interactive) */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/80" />
+
+      {/* Floating orbs for parallax depth */}
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="absolute -top-10 right-10 h-40 w-40 rounded-full bg-cyan-400/20 blur-2xl"
+      />
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.25 }}
+        className="absolute bottom-10 -left-10 h-52 w-52 rounded-full bg-blue-500/20 blur-3xl"
+      />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24">
         <motion.div
@@ -37,6 +53,17 @@ export default function Hero() {
               Contact Me
             </a>
           </div>
+
+          {/* Subtle scroll cue */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="mt-16 flex items-center gap-3 text-slate-300/80"
+          >
+            <span className="h-4 w-4 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-500 animate-pulse" />
+            Scroll to explore
+          </motion.div>
         </motion.div>
       </div>
     </section>
